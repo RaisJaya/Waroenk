@@ -43,7 +43,9 @@ Aplikasi ini merupakan aplikasi pembelian makanan dan minuman dengan menambahkan
 		```
         
 - voucher yang disediakan :
+
       ```c#
+      
         private void generateContentPromo()
         {
             Diskon diskon1 = new Diskon("Promo Awal tahun Diskon 25 % ", 25000);
