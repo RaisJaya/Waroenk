@@ -1,7 +1,7 @@
 # STUDI KASUS
-AHMAD RAIS DWI JAYA
-19.11.2825 / S1-IF-04
-membuat sebuah aplikasi sederhana sesuai studi kasus yang diberikan untuk memenuhi tugas akhir semester ganjil matakuliah pemrograman lanjut. 
+- AHMAD RAIS DWI JAYA
+- 19.11.2825 / S1-IF-04
+- Membuat sebuah aplikasi sederhana sesuai studi kasus yang diberikan untuk memenuhi tugas akhir semester ganjil matakuliah pemrograman lanjut. 
 Aplikasi ini merupakan aplikasi pembelian makanan dan minuman dengan menambahkan voucher didalamannya.
 
 ## scope and functionalities
