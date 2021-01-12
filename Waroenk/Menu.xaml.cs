@@ -9,7 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Waroenk.Contoller;
+using Waroenk.Controller;
 using Waroenk.Model;
 
 namespace Waroenk
@@ -40,6 +40,8 @@ namespace Waroenk
             ListBox listbox = sender as ListBox;
             Item item = listbox.SelectedItem as Item;
             this.listener.OnMenuSelected(item);
+
+
         }
 
         private void generateContentMenu()
@@ -72,4 +74,3 @@ namespace Waroenk
         void OnMenuSelected(Item item);
     }
 }
-

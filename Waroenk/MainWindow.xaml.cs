@@ -2,30 +2,39 @@
 using System.Windows.Controls;
 using System.Windows.Input;
 using Waroenk.Model;
-using Waroenk.Contoller;
+using Waroenk.Controller;
 
 namespace Waroenk
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window,
-       OnMenuChangedListener,
-       onKeranjangBelanjaChangedListener,
-       OnPromoChangedListener
+         OnMenuChangedListener,
+         onKeranjangBelanjaChangedListener,
+         OnPromoChangedListener,
+         OnPaymentChangedListener
     {
         MainWindowController controller;
-
+        Bayar payment;
         public MainWindow()
         {
             InitializeComponent();
-            KeranjangBelanja keranjangBelanja = new KeranjangBelanja(this);
-            controller = new MainWindowController(keranjangBelanja);
+            payment = new Bayar(this);
+            KeranjangBelanja keranjangBelanja = new KeranjangBelanja(payment, this);
+            controller = new MainWindowController(keranjangBelanja, payment);
 
             listKeranjangBelanja.ItemsSource = controller.getItems();
-            listBoxPromo.ItemsSource = controller.getDiskon();
+            voucher.ItemsSource = controller.getDiskon();
+
+            initializeView();
 
         }
+
+        public void onPriceUpdated(double subTotal, double total, double promo)
+        {
+            labelSubTotal.Content = "Rp " + subTotal;
+            labelPromo.Content = "Rp" + (total - subTotal);
+            labelTotal.Content = "Rp " + total;
+        }
+
 
         public void addItemSucceed()
         {
@@ -44,7 +53,7 @@ namespace Waroenk
 
         public void addPromoSucceed()
         {
-            listBoxPromo.Items.Refresh();
+            voucher.Items.Refresh();
         }
 
 
@@ -73,13 +82,18 @@ namespace Waroenk
             promo.SetOnPromoSelectedListener(this);
             promo.Show();
 
-
         }
 
         public void OnPromoSelected(Diskon diskon)
         {
             controller.addDiskon(diskon);
         }
-    }
 
+        private void initializeView()
+        {
+            labelSubTotal.Content = 0;
+            labelPromo.Content = 0;
+            labelTotal.Content = 0;
+        }
+    }
 }

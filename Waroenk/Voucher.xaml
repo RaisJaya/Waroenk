@@ -5,23 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Waroenk"
         mc:Ignorable="d"
-        Title="Promo" Height="450" Width="358">
-    <Grid HorizontalAlignment="Left" Width="320">
-        <ListBox x:Name="listBoxDaftarPromo" Margin="32,48,0,48" MouseDoubleClick="onlistBoxDaftarPromoClicked">
+        Title="Promo" Height="280" Width="626">
+    <Grid HorizontalAlignment="Left" Width="623" Margin="-7,0,0,30">
+        <ListBox x:Name="listBoxDaftarPromo" Margin="32,48,27,10" MouseDoubleClick="onlistBoxDaftarPromoClicked">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0,2">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="350" />
 
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Row="0" Text="{Binding diskon}" TextAlignment="Left" FontSize="16"/>
+                        <TextBlock Grid.Row="0" Text="{Binding diskon}" TextAlignment="Left" FontSize="14"/>
 
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Label Content="PROMO" HorizontalAlignment="Left" Margin="135,22,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="82"/>
+        <Label Content="VOUCHER" HorizontalAlignment="Left" Margin="267,17,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="94"/>
     </Grid>
 </Window>
+
 

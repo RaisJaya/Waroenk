@@ -5,15 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Waroenk"
         mc:Ignorable="d"
-        Title="Menu" Height="450" Width="344">
-    <Grid HorizontalAlignment="Left" Width="320">
-        <ListBox x:Name="listMenu" Margin="32,48,0,48" MouseDoubleClick="listMenuOnDoubleClicked">
+        Title="Menu" Height="487" Width="344">
+
+    <Grid HorizontalAlignment="Left" Width="334" Margin="0,0,0,109">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="listMenu" Margin="18,59,0,0" MouseDoubleClick="listMenuOnDoubleClicked" HorizontalAlignment="Left" Width="306" RenderTransformOrigin="0.493,0.471" Height="272" VerticalAlignment="Top">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0,2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="200" />
-                            <ColumnDefinition Width="70" />
+
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Row="0" Text="{Binding item}" TextAlignment="Left" FontSize="16"/>
                         <TextBlock Grid.Row="1" Text="{Binding price}"  TextAlignment="Right" FontSize="16"/>
@@ -21,6 +25,8 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Label Content="DAFTAR MENU" HorizontalAlignment="Left" Margin="125,17,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="102"/>
+        <Label Content="DAFTAR MENU" HorizontalAlignment="Left" Margin="122,33,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="98"/>
+
     </Grid>
 </Window>
+

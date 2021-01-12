@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using Waroenk.Model;
 
-namespace Waroenk.Contoller
+namespace Waroenk.Controller
 {
     class MainWindowController
     {
         KeranjangBelanja keranjangBelanja;
 
 
-        public MainWindowController(KeranjangBelanja keranjangBelanja)
+        public MainWindowController(KeranjangBelanja keranjangBelanja, Bayar payment)
         {
             this.keranjangBelanja = keranjangBelanja;
         }

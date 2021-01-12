@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Waroenk.Model;
 
-namespace Waroenk.Contoller
+namespace Waroenk.Controller
 {
     class MenuController
     {

@@ -8,10 +8,12 @@ namespace Waroenk.Model
     {
         List<Item> itemkeranjangBelanja;
         public List<Diskon> diskonDipakai;
+        Bayar payment;
         onKeranjangBelanjaChangedListener onKeranjangBelanjaChangedListener;
 
-        public KeranjangBelanja(onKeranjangBelanjaChangedListener onKeranjangBelanjaChangedListener)
+        public KeranjangBelanja(Bayar payment, onKeranjangBelanjaChangedListener onKeranjangBelanjaChangedListener)
         {
+            this.payment = payment;
             this.onKeranjangBelanjaChangedListener = onKeranjangBelanjaChangedListener;
             this.itemkeranjangBelanja = new List<Item>();
             this.diskonDipakai = new List<Diskon>();
@@ -24,6 +26,14 @@ namespace Waroenk.Model
         public List<Diskon> getDiskon()
         {
             return this.diskonDipakai;
+        }
+
+        public void addDiskon(Diskon diskon)
+        {
+            this.diskonDipakai.Clear();
+            this.diskonDipakai.Add(diskon);
+            this.onKeranjangBelanjaChangedListener.addPromoSucceed();
+            calculateSubTotal();
         }
 
         public void addItem(Item item)
@@ -43,20 +53,44 @@ namespace Waroenk.Model
         private void calculateSubTotal()
         {
             double subTotal = 0;
+            double promo = 0;
             foreach (Item item in itemkeranjangBelanja)
             {
                 subTotal += item.price;
-            }
-        }
 
-        public void addDiskon(Diskon diskon)
-        {
-            this.diskonDipakai.Clear();
-            this.diskonDipakai.Add(diskon);
-            this.onKeranjangBelanjaChangedListener.addPromoSucceed();
+            }
+            foreach (Diskon diskon in diskonDipakai)
+            {
+                if (diskon.potongan == 10000)
+                {
+                    promo = 10000;
+                }
+                else if (diskon.potongan == 30000)
+                {
+
+                    promo = (subTotal * 30 / 100);
+
+                    if (promo > 30000)
+                    {
+                        promo = 30000;
+                    }
+                    else
+                    {
+                        promo = (subTotal * 30 / 100);
+                    }
+
+                }
+                else if (diskon.potongan == 25000)
+                {
+                    promo = (subTotal * 25 / 100);
+
+                }
+
+            }
+
+            payment.updateTotal(subTotal, promo);
         }
     }
-
 
 
     interface onKeranjangBelanjaChangedListener
@@ -65,6 +99,7 @@ namespace Waroenk.Model
         void addItemSucceed();
 
         void addPromoSucceed();
+
     }
 }
 

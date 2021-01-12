@@ -4,23 +4,18 @@ using System.Text;
 
 namespace Waroenk.Model
 {
-   
-        public class Diskon
+
+    public class Diskon
+    {
+        public string diskon { get; set; }
+        public double potongan { get; set; }
+
+        public Diskon(string diskon, double potongan)
         {
-            public string diskon { get; set; }
-            public double potongan { get; set; }
-
-            public Diskon(string diskon, double potongan)
-            {
-                this.diskon = diskon;
-                this.potongan = potongan;
-
-            }
-
-        internal bool Any(Func<object, bool> p)
-        {
-            throw new NotImplementedException();
+            this.diskon = diskon;
+            this.potongan = potongan;
         }
-    }
-  }
 
+
+    }
+}

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Text;
 using Waroenk.Model;
 
-namespace Waroenk.Contoller
+namespace Waroenk.Controller
 {
-    class PromoController
+    class VoucherController
     {
-        private List<Diskon> diskon;
+        public List<Diskon> diskon;
 
-        public PromoController()
+        public VoucherController()
         {
             diskon = new List<Diskon>();
         }

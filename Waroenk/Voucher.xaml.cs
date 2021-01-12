@@ -9,7 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Waroenk.Contoller;
+using Waroenk.Controller;
 using Waroenk.Model;
 
 namespace Waroenk
@@ -19,12 +19,12 @@ namespace Waroenk
     /// </summary>
     public partial class Promo : Window
     {
-        PromoController promoController;
+        VoucherController promoController;
         OnPromoChangedListener promoListener;
         public Promo()
         {
             InitializeComponent();
-            promoController = new PromoController();
+            promoController = new VoucherController();
             listBoxDaftarPromo.ItemsSource = promoController.getDiskon();
 
             generateContentPromo();
@@ -37,7 +37,7 @@ namespace Waroenk
 
         private void generateContentPromo()
         {
-            Diskon diskon1 = new Diskon("Promo Awal tahun Diskon 25 % ", 0.25);
+            Diskon diskon1 = new Diskon("Promo Awal tahun Diskon 25 % ", 25000);
             Diskon diskon2 = new Diskon("Promo Tebus Murah Diskon 30 % atau maksimal 30.000", 30000);
             Diskon diskon3 = new Diskon("Promo Natal Potongan 10000", 10000);
 
@@ -53,6 +53,7 @@ namespace Waroenk
             ListBox listbox = sender as ListBox;
             Diskon diskon = listbox.SelectedItem as Diskon;
             this.promoListener.OnPromoSelected(diskon);
+            this.Close();
         }
     }
 
